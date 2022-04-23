@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>BanPickLiveUI</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'cxl6ziy',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+  </head>
+  <body>
+    <!-- https://youtu.be/neXf2DOEsnc?t=301 -->
+    <!-- https://youtu.be/ijefFPZWxRw?t=1307 -->
+    <div class="stage">
+      <div id="banStage" class="banStage">
+        <div class="blueBan">
+          <div id="banSlash1" class="ban0 banBlueSlash"></div>
+          <div id="banSlash2" class="ban2 banBlueSlash"></div>
+          <div id="banSlash3" class="ban4 banBlueSlash"></div>
+          <div id="banSlash4" class="ban6 banBlueSlash"></div>
+          <div id="banSlash5" class="ban8 banBlueSlash"></div>
+        </div>
+        <div class="redBan">
+          <div id="banSlash10" class="ban1 banRedSlash"></div>
+          <div id="banSlash9" class="ban3 banRedSlash"></div>
+          <div id="banSlash8" class="ban5 banRedSlash"></div>
+          <div id="banSlash7" class="ban7 banRedSlash"></div>
+          <div id="banSlash6" class="ban9 banRedSlash"></div>
+        </div>
+        <div class="blueBan">
+          <div id="banGradation1" class="ban0"></div>
+          <div id="banGradation2" class="ban2"></div>
+          <div id="banGradation3" class="ban4"></div>
+          <div id="banGradation4" class="ban6"></div>
+          <div id="banGradation5" class="ban8"></div>
+        </div>
+        <div class="redBan">
+          <div id="banGradation10" class="ban1"></div>
+          <div id="banGradation9" class="ban3"></div>
+          <div id="banGradation8" class="ban5"></div>
+          <div id="banGradation7" class="ban7"></div>
+          <div id="banGradation6" class="ban9"></div>
+        </div>
+        <div class="bluePick">
+          <div id="pickGradation1" class="pick"></div>
+          <div id="pickGradation2" class="pick"></div>
+          <div id="pickGradation3" class="pick"></div>
+          <div id="pickGradation4" class="pick"></div>
+          <div id="pickGradation5" class="pick"></div>
+        </div>
+        <div class="redPick">
+          <div id="pickGradation6" class="pick"></div>
+          <div id="pickGradation7" class="pick"></div>
+          <div id="pickGradation8" class="pick"></div>
+          <div id="pickGradation9" class="pick"></div>
+          <div id="pickGradation10" class="pick"></div>
+        </div>
+
+        <div class="blueBan">
+          <div id="ban1" class="ban0 blueIcon banIcon"></div>
+          <div id="ban2" class="ban2 blueIcon banIcon"></div>
+          <div id="ban3" class="ban4 blueIcon banIcon"></div>
+          <div id="ban4" class="ban6 blueIcon banIcon"></div>
+          <div id="ban5" class="ban8 blueIcon banIcon"></div>
+        </div>
+        <div class="redBan">
+          <div id="ban10" class="ban9 redIcon banIcon"></div>
+          <div id="ban9" class="ban7 redIcon banIcon"></div>
+          <div id="ban8" class="ban5 redIcon banIcon"></div>
+          <div id="ban7" class="ban3 redIcon banIcon"></div>
+          <div id="ban6" class="ban1 redIcon banIcon"></div>
+        </div>
+        <div class="bluePick">
+          <div id="pick1" class="pick blueIcon pickIcon"></div>
+          <div id="pick2" class="pick blueIcon pickIcon"></div>
+          <div id="pick3" class="pick blueIcon pickIcon"></div>
+          <div id="pick4" class="pick blueIcon pickIcon"></div>
+          <div id="pick5" class="pick blueIcon pickIcon"></div>
+        </div>
+        <div class="redPick">
+          <div id="pick6" class="pick redIcon pickIcon"></div>
+          <div id="pick7" class="pick redIcon pickIcon"></div>
+          <div id="pick8" class="pick redIcon pickIcon"></div>
+          <div id="pick9" class="pick redIcon pickIcon"></div>
+          <div id="pick10" class="pick redIcon pickIcon"></div>
+        </div>
+      </div>
+      <div id="text" class="text">
+        <div id="player1" class="player"></div>
+        <div id="player2" class="player"></div>
+        <div id="player3" class="player"></div>
+        <div id="player4" class="player"></div>
+        <div id="player5" class="player"></div>
+        <div id="player6" class="player"></div>
+        <div id="player7" class="player"></div>
+        <div id="player8" class="player"></div>
+        <div id="player9" class="player"></div>
+        <div id="player10" class="player"></div>
+        <div id="timer" class="timer"></div>
+        <div id="blueTeamName" class="teamName"></div>
+        <div id="redTeamName" class="teamName"></div>
+      </div>
+      <div id="show1" class="back">
+        <div id="show6" class="lineImage"></div>
+        <div id="show2" class="banLeft"></div>
+        <div id="show3" class="banRight"></div>
+        <div id="show4" class="pickLeft"></div>
+        <div id="show5" class="pickRight"></div>
+        <div id="blueCoach"></div>
+        <div id="redCoach"></div>
+        <div class="backPanel"></div>
+      </div>
+      <div id="arrow"></div>
+    </div>
+  </body>
+</html>
+
+<script type="text/javascript">
+  show('show1','show1',0);
+  show('show2','show2',500);
+  show('show3','show3',500);
+  show('show4','show4',650);
+  show('show5','show5',650);
+  show('show6','show6',930);
+
+  show('banSlash1','show6',930);
+  show('banSlash2','show6',930);
+  show('banSlash3','show6',930);
+  show('banSlash4','show6',930);
+  show('banSlash5','show6',930);
+  show('banSlash6','show6',930);
+  show('banSlash7','show6',930);
+  show('banSlash8','show6',930);
+  show('banSlash9','show6',930);
+  show('banSlash10','show6',930);
+  show('text','show6',930);
+  show('arrow','show6',930);
+  show('banStage','show6',930);
+  // show('banStage','show6',1930);
+
+  var timer = 0.0;
+  const setTimer = () => {
+    timer = timer-0.1;
+    if(timer < 0){
+      document.getElementById('timer').innerHTML = ':0';
+    } else {
+      document.getElementById('timer').innerHTML = ":" + Math.floor(timer);
+    }
+  }
+  var gameStarting = false;
+  
+  getGameData();
+  setInterval(setTimer,100);
+
+  function getGameData() {
+    var websocket = new WebSocket("ws://$WEBSOCKETADDRESS");
+    websocket.onopen = function () {
+      console.log("connected");
+    };
+    websocket.onclose = function () {
+      console.log("disconnected");
+      setTimeout(function(){getGameData()}, 1000);
+    };
+    websocket.onmessage = function (e) {
+      var data = JSON.parse(e.data);
+      // console.log(data);
+      for (var key in data.players) {
+        var id = Number(key)+1;
+        document.getElementById("player"+id).innerHTML = data.players[key].summonerName;
+        setImage(id,data.players[key].pick,false,data.players[key].completed);
+      }
+      for (var key in data.bans) {
+        var id = Number(key)+1;
+        setImage(id,data.bans[key].pick,true,data.bans[key].completed);
+      }
+      if("FINALIZATION" == data.phase){
+        if(!gameStarting){
+          timer = 60;
+          gameStarting = true;
+          document.getElementById('arrow').classList.remove('blueArrow');
+          document.getElementById('arrow').classList.remove('redArrow');
+        }
+      }
+      else if("GAME_STARTING" == data.phase) {
+        console.log("GameWaiting");
+      } else {
+        setGradation(data.progress,data.banProgress);
+        gameStarting = false;
+      }
+      document.getElementById("blueTeamName").innerHTML = data.blueTeamName;
+      document.getElementById("redTeamName").innerHTML = data.redTeamName;
+      if(data.blueTeamCoachName != null&&data.blueTeamCoachName != ""){
+          document.getElementById('blueCoach').style.opacity = '1';
+        document.getElementById("blueCoach").innerHTML = "Coach: "+data.blueTeamCoachName;
+      } else {
+          document.getElementById('blueCoach').style.opacity = '0';
+          document.getElementById("blueCoach").innerHTML = "";
+      }
+      if(data.redTeamCoachName != null&&data.redTeamCoachName != "") {
+          document.getElementById('redCoach').style.opacity = '1';
+        document.getElementById("redCoach").innerHTML = "Coach: "+data.redTeamCoachName;
+      } else {
+          document.getElementById('redCoach').style.opacity = '0';
+          document.getElementById("redCoach").innerHTML = "";
+      }
+    }
+  }
+
+  // function setBlueCoach(){
+
+  // }
+
+  function show(id,clas,delay){
+    setTimeout(() => {
+      document.getElementById(id).classList.add(clas);
+    }, delay);
+  }
+
+  var lastEId = null;
+  var lastEAddClass = null;
+
+  var lastId = null;
+  var lastBan = null;
+  function setGradation(id,ban){
+    if(id == -1){
+      return;
+    }
+    if(lastEId != null&&lastEAddClass != null){
+      document.getElementById(lastEId).classList.remove(lastEAddClass);
+    }
+    var eId = ban? "banGradation"+id:"pickGradation"+id;
+    var clas = "blueGradation";
+    document.getElementById('arrow').classList.remove('blueArrow');
+    document.getElementById('arrow').classList.remove('redArrow');
+    if(id >= 6){
+      if(ban){
+        document.getElementById("banSlash"+id).classList.remove('banRedSlash');
+      }
+      clas = "redGradation";
+      document.getElementById('arrow').classList.add('redArrow');
+    } else {
+      if(ban){
+        document.getElementById("banSlash"+id).classList.remove('banBlueSlash');
+      }
+      document.getElementById('arrow').classList.add('blueArrow');
+    }
+    document.getElementById(eId).classList.add(clas);
+    lastEId = eId;
+    lastEAddClass = clas;
+    if(id != lastId||ban != lastBan){
+      timer = 31;
+    }
+    lastId = id;
+    lastBan = ban;
+  }
+
+  function setImage(id,url,ban,completed){
+    var sid;
+    if(ban){
+      var sid = "ban"+id;
+      if(completed){
+        document.getElementById("banSlash"+id).classList.add('banBlueSlash');
+        document.getElementById("banSlash"+id).classList.add('shashBrightness');
+      }
+      else if(url != null){
+        document.getElementById("banSlash"+id).classList.remove('banBlueSlash');
+      }
+    } else {
+      var sid = "pick"+id;
+      if(completed){
+        document.getElementById("pickGradation"+id).classList.add('completed');
+      }
+    }
+    var image = document.getElementById(sid).style.backgroundImage;
+    var lastUrl = image.substring(5,image.length-2);
+    if(url != lastUrl){
+      document.getElementById(sid).style.backgroundImage = 'url('+url+')';
+    }
+  }
+</script>
+
+<!-- <script type="text/javascript">
+
+  window.onload = function() {
+    for (var key in localStorage) {
+      localStorage.removeItem(key);
+    }
+    getGameData();
+    setInterval(setTimer,100);
+  }
+
+  var timer = 0.0;
+
+  const setTimer = () => {
+    timer = timer-0.1;
+    if(timer < 0){
+      document.getElementById('timer').innerHTML = ':0';
+    } else {
+      document.getElementById('timer').innerHTML = ":" + Math.floor(timer);
+    }
+  }
+
+  function setSpell() {
+    for (var key in localStorage) {
+      if (key.includes('spell')) {
+        document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/s' + localStorage.getItem(key) + ')';
+      }
+    }
+  }
+
+  function getGameData() {
+    var websocket = new WebSocket("ws://localhost:8331");
+      websocket.onopen = function () {
+        console.log("connected");
+      };
+      websocket.onclose = function () {
+        console.log("disconnected");
+        setTimeout(function(){getGameData()}, 1000);
+      };
+      websocket.onmessage = function (e) {
+        var data = JSON.parse(e.data);
+        console.log(data);
+        for (var key in data) {
+          if (localStorage.getItem(key) != data[key]) {
+            // console.log(key + ': ' + data[key] + '  update');
+            if (key == 'phase') {
+              if (data[key] == 'FINALIZATION') {
+                timer = 63;
+                setSpell();
+              } else if (data[key] == 'GAME_STARTING') {
+                var url = 'file:///' + localStorage.getItem('file') + '/bpend.html?';
+                var count = 0;
+                while (true) {
+                  url += 'c' + count + '=' + localStorage.getItem('pick' + count) + '&s' + count + '=' + localStorage.getItem('summonerName' + count);
+                  if (count != 9) {
+                    url += '&';
+                  } else {
+                    break;
+                  }
+                  count++;
+                }
+                location.href = url;
+              }
+            } else if (key.includes('pick')) {
+              if (data[key] != -1) {
+                if (key.includes('0') || key.includes('1') || key.includes('2') || key.includes('3') || key.includes('4')) {
+                  document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/b' + data[key] + ')';
+                } else {
+                  document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/r' + data[key] + ')';
+                }
+              } else {
+                document.getElementById(key).style.backgroundImage = 'none';
+              }
+            } else if (key.includes('ban')) {
+              if (data[key] != -1) {
+                document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/d' + data[key] + ')';
+              } else {
+                document.getElementById(key).style.backgroundImage = 'none';
+              }
+            } else if (key.includes('spell')) {
+              if (data['phase'] == 'FINALIZATION') {
+                document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/s' + data[key] + ')';
+              }
+            } else if (key.includes('select')) {
+              if (data[key] > 0) {
+                if (localStorage.getItem(key) != null&&localStorage.getItem(key) > 0) {
+                  if(localStorage.getItem(key) != data[key]){
+                    setSelect(localStorage.getItem(key), false);
+                    setSelect(data[key], true);
+                  }
+                } else {
+                  setSelect(data[key], true);
+                }
+              } else {
+                if (localStorage.getItem(key) != null) {
+                  if (localStorage.getItem(key) > 0) {
+                    localStorage.setItem('final',true);
+                    setSelect(localStorage.getItem(key), false);
+                  }
+                }
+              }
+
+              // if (localStorage.getItem(key) != null) {
+              //   if (localStorage.getItem(key) > 0) {
+              //     setSelect(localStorage.getItem(key), false);
+              //   }
+              // }
+              // if (data[key] > 0) {
+              //   setSelect(data[key], true);
+              // }
+            } else if (key == 'patch') {
+              document.getElementById(key).innerHTML = 'PATCH: ' + data[key];
+            } else if (key == 'timer') {
+              // document.getElementById(key).innerHTML = ':' + data[key];
+            } else if (key.includes('TeamName') || key.includes('summonerName')) {
+              document.getElementById(key).innerHTML = data[key];
+            }
+            localStorage.setItem(key, data[key]);
+          }
+        }
+      }
+      // })
+      // .catch(error => {
+      //   console.error('Error:', error);
+      // });
+  }
+
+  function setSelect(pick, add) {
+    if(add){
+        timer = 30;
+    }
+    var color = "Blue";
+    var ban = false;
+    if (
+      pick == "7" ||
+      pick == "8" ||
+      pick == "11" ||
+      pick == "16" ||
+      pick == "19"
+    ) {
+      color = "Red";
+    } else if (
+      pick == "0" ||
+      pick == "2" ||
+      pick == "4" ||
+      pick == "13" ||
+      pick == "15"
+    ) {
+      ban = true;
+    } else if (
+      pick == "14" ||
+      pick == "12" ||
+      pick == "5" ||
+      pick == "3" ||
+      pick == "1"
+    ) {
+      color = "Red";
+      ban = true;
+    }
+    if (add) {
+      if (ban) {
+        document.getElementById('banpickGra' + pick).classList.add('banpick' + color);
+      } else {
+        document.getElementById('pickGra' + pick).classList.add('pick' + color);
+      }
+    } else {
+      if (ban) {
+        document.getElementById('banpickGra' + pick).classList.remove('banpick' + color);
+      } else {
+        document.getElementById('pickGra' + pick).classList.remove('pick' + color);
+      }
+    }
+  }
+</script> -->

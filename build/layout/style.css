@@ -1,0 +1,403 @@
+@charset "utf-8";
+body {
+  margin: 0px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  
+  font-family: fot-udkakugoc80-pro,sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.stage {
+  margin-top: 736px;
+  width: 1920px;
+  height: 344px;
+  /* background-image: url(layout.png); */
+}
+
+.banStage {
+  position: absolute;
+  width: 1920px;
+  height: 98px;
+  opacity: 0;
+  z-index: 1;
+}
+.blueBan {
+  position: absolute;
+  float: left;
+  width: 525px;
+  height: 98px;
+}
+.redBan {
+  position: absolute;
+  float: left;
+  margin-left: 1395px;
+  width: 525px;
+  height: 98px;
+}
+.bluePick {
+  position: absolute;
+  float: left;
+  margin-top: 101px;
+  width: 790px;
+  height: 243px;
+}
+.redPick {
+  position: absolute;
+  float: left;
+  margin-top: 101px;
+  margin-left: 1130px;
+  width: 790px;
+  height: 243px;
+}
+.banBlueSlash {
+  z-index: 5;
+  opacity: 0;
+  background-image: url(layout/BlueSlash.png);
+}
+.banRedSlash {
+  z-index: 5;
+  opacity: 0;
+  background-image: url(layout/RedSlash.png);
+}
+.shashBrightness {
+  opacity: 1;
+  filter: brightness(175%);
+}
+.shashBrightness {
+  opacity: 1;
+  filter: brightness(165%);
+}
+
+.blueGradation {
+  animation: flash 4s linear infinite;
+  background: linear-gradient(rgba(0, 0, 0, 0),rgba(100, 100, 255, 0.8));
+  background-size: 100% 100%;
+  z-index: 4;
+}
+.redGradation {
+  animation: flash 4s linear infinite;
+  background: linear-gradient(rgba(0, 0, 0, 0),rgba(255, 100, 100, 0.8));
+  background-size: 100% 100%;
+  z-index: 4;
+}
+@keyframes flash {
+  0%, 100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.completed {
+  background: linear-gradient(rgba(0, 0, 0, 0) 60%, rgba(32, 32, 32, 0.7) 100%);
+  background-size: 100% 100%;
+  z-index: 4;
+}
+
+.ban6,.ban5 {
+  margin-left: 30px;
+}
+.ban0,.ban2,.ban4,.ban6,.ban8 {
+  position: relative;
+  float: left;
+  margin-right: 1px;
+  width: 98px;
+  height: 98px;
+}
+.ban1,.ban3,.ban5,.ban7,.ban9 {
+  position: relative;
+  float: left;
+  margin-right: 1px;
+  width: 98px;
+  height: 98px;
+}
+.pick {
+  position: relative;
+  float: left;
+  width: 158px;
+  height: 243px;
+}
+.blueIcon {
+  z-index: 3;
+}
+.redIcon {
+  z-index: 3;
+  /* transform: scaleX(-1); */
+}
+.banIcon {
+  background-position: center center;
+  background-size: 100% 100%;
+}
+.pickIcon {
+  background-position: 50% 32%;
+  background-size: 275%;
+}
+
+.back {
+  position: absolute;
+  width: 1920px;
+  height: 344px;
+}
+.banLeft {
+  position: absolute;
+  width: 960px;
+  height: 99px;
+  background-color: rgba(50, 50, 50, 1);
+  z-index: 1;
+}
+.banRight {
+  position: absolute;
+  margin-left: 960px;
+  width: 960px;
+  height: 99px;
+  background-color: rgba(50, 50, 50, 1);
+  z-index: 1;
+}
+.pickLeft {
+  position: absolute;
+  margin-top: 98px;
+  width: 960px;
+  height: 246px;
+  background-color: rgba(50, 50, 50, 1);
+  z-index: 1;
+}
+.pickRight {
+  position: absolute;
+  margin-top: 98px;
+  margin-left: 960px;
+  width: 960px;
+  height: 246px;
+  background-color: rgba(50, 50, 50, 1);
+  z-index: 1;
+}
+.backPanel {
+  position: absolute;
+  margin-top: 98px;
+  width: 1920px;
+  height: 246px;
+  background: linear-gradient(0deg, rgba(30,30,30,1) 0%, rgba(40,40,40,1) 65%);
+  z-index: -1;
+}
+.lineImage {
+  position: absolute;
+  opacity: 0;
+  background-image: url(layout/Line.png);
+  z-index: 7;
+  width: 1920px;
+  height: 344px;
+}
+.text {
+  position: absolute;
+  z-index: 6;
+  color: rgb(220, 220, 220);
+  width: 1920px;
+  height: 344px;
+  opacity: 0;
+}
+.player {
+  width: 158px;
+  white-space: pre-wrap;
+  text-align: center;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 23px;
+  float: left;
+  position: absolute;
+  bottom: 14px;
+  line-height: 28px;
+  word-break: break-word;
+  height: 33px;
+}
+#player2 {
+  margin-left: 158px;
+}
+#player3 {
+  margin-left: 316px;
+}
+#player4 {
+  margin-left: 474px;
+}
+#player5 {
+  margin-left: 632px;
+}
+#player6 {
+  margin-left: 1130px;
+}
+#player7 {
+  margin-left: 1288px;
+}
+#player8 {
+  margin-left: 1446px;
+}
+#player9 {
+  margin-left: 1604px;
+}
+#player10 {
+  margin-left: 1762px;
+}
+
+.timer {
+  position: absolute;
+  margin: 70px 0 0 869px;
+  font-size: 90px;
+  width: 160px;
+  height: 120px;
+  text-align: center;
+}
+
+.teamName {
+  position: absolute;
+  font-size: 65px;
+  width: 160px;
+  height: 120px;
+  text-align: center;
+}
+#blueTeamName {
+  margin: 198px 0 0 783px;
+  color: rgba(100,130,255,0.85);
+}
+#redTeamName {
+  margin: 198px 0 0 974px;
+  color: rgba(255,130,100,0.85);
+}
+
+#arrow {
+  position: absolute;
+  border-top: 23px solid transparent;
+  border-bottom: 23px solid transparent;
+  opacity: 0;
+}
+.blueArrow {
+  border-right: 28px solid rgba(100,130,255,1);
+  border-left: 28px solid transparent;
+  margin: 241px 0 0 915px;
+}
+.redArrow {
+  border-right: 28px solid transparent;
+  border-left: 28px solid rgba(255,130,100,1);
+  margin: 241px 0 0 948px;
+}
+
+#blueCoach {
+  position: absolute;
+  width: 230px;
+  height: 43px;
+  padding-left: 10px;
+  color: white;
+  margin: 55px 0 0 524px;
+  font-size: 22px;
+  letter-spacing: 1.2px;
+  background: linear-gradient(90deg, rgba(100,130,255,1) 0%, rgba(50,50,50,1) 3%);
+  opacity: 0;
+}
+#redCoach {
+  position: absolute;
+  width: 230px;
+  height: 43px;
+  padding-right: 10px;
+  color: white;
+  margin: 55px 0 0 1155px;
+  font-size: 22px;
+  letter-spacing: 1.2px;
+  text-align: right;
+  background: linear-gradient(270deg, rgba(255,130,100,1) 0%, rgba(50,50,50,1) 3%);
+  opacity: 0;
+}
+
+
+
+@keyframes show1 {
+  0% {
+    transform: translateY(344px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.show1 {
+ animation-name: show1;
+ animation-duration: 0.5s;
+ animation-timing-function: cubic-bezier(0, 0.85, 1, 1);;
+ animation-fill-mode: forwards;
+}
+
+@keyframes show2 {
+  0% {
+
+  }
+  100% {
+    transform: translateX(-435px);
+  }
+}
+.show2 {
+ animation-name: show2;
+ animation-duration: 0.4s;
+ animation-timing-function: cubic-bezier(0.21, 0.79, 1, 1);
+ animation-fill-mode: forwards;
+}
+
+@keyframes show3 {
+  0% {
+
+  }
+  100% {
+    transform: translateX(435px);
+  }
+}
+.show3 {
+ animation-name: show3;
+ animation-duration: 0.4s;
+ animation-timing-function: cubic-bezier(0.21, 0.79, 1, 1);
+ animation-fill-mode: forwards;
+}
+
+
+@keyframes show4 {
+  0% {
+
+  }
+  100% {
+    transform: translateX(-170px);
+  }
+}
+.show4 {
+ animation-name: show4;
+ animation-duration: 0.4s;
+ animation-timing-function: cubic-bezier(0.21, 0.79, 1, 1);
+ animation-fill-mode: forwards;
+}
+
+@keyframes show5 {
+  0% {
+
+  }
+  100% {
+    transform: translateX(170px);
+  }
+}
+.show5 {
+ animation-name: show5;
+ animation-duration: 0.4s;
+ animation-timing-function: cubic-bezier(0.21, 0.79, 1, 1);
+ animation-fill-mode: forwards;
+}
+
+@keyframes show6 {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.show6 {
+ animation-name: show6;
+ animation-duration: 0.4s;
+ animation-timing-function: cubic-bezier(0.21, 0.79, 1, 1);
+ animation-fill-mode: forwards;
+}
