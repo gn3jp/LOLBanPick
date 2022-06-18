@@ -143,7 +143,6 @@
   show('text','show6',930);
   show('arrow','show6',930);
   show('banStage','show6',930);
-  // show('banStage','show6',1930);
 
   var timer = 0.0;
   const setTimer = () => {
@@ -170,7 +169,6 @@
     };
     websocket.onmessage = function (e) {
       var data = JSON.parse(e.data);
-      // console.log(data);
       for (var key in data.players) {
         var id = Number(key)+1;
         document.getElementById("player"+id).innerHTML = data.players[key].summonerName;
@@ -212,10 +210,6 @@
       }
     }
   }
-
-  // function setBlueCoach(){
-
-  // }
 
   function show(id,clas,delay){
     setTimeout(() => {
@@ -285,177 +279,3 @@
     }
   }
 </script>
-
-<!-- <script type="text/javascript">
-
-  window.onload = function() {
-    for (var key in localStorage) {
-      localStorage.removeItem(key);
-    }
-    getGameData();
-    setInterval(setTimer,100);
-  }
-
-  var timer = 0.0;
-
-  const setTimer = () => {
-    timer = timer-0.1;
-    if(timer < 0){
-      document.getElementById('timer').innerHTML = ':0';
-    } else {
-      document.getElementById('timer').innerHTML = ":" + Math.floor(timer);
-    }
-  }
-
-  function setSpell() {
-    for (var key in localStorage) {
-      if (key.includes('spell')) {
-        document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/s' + localStorage.getItem(key) + ')';
-      }
-    }
-  }
-
-  function getGameData() {
-    var websocket = new WebSocket("ws://localhost:8331");
-      websocket.onopen = function () {
-        console.log("connected");
-      };
-      websocket.onclose = function () {
-        console.log("disconnected");
-        setTimeout(function(){getGameData()}, 1000);
-      };
-      websocket.onmessage = function (e) {
-        var data = JSON.parse(e.data);
-        console.log(data);
-        for (var key in data) {
-          if (localStorage.getItem(key) != data[key]) {
-            // console.log(key + ': ' + data[key] + '  update');
-            if (key == 'phase') {
-              if (data[key] == 'FINALIZATION') {
-                timer = 63;
-                setSpell();
-              } else if (data[key] == 'GAME_STARTING') {
-                var url = 'file:///' + localStorage.getItem('file') + '/bpend.html?';
-                var count = 0;
-                while (true) {
-                  url += 'c' + count + '=' + localStorage.getItem('pick' + count) + '&s' + count + '=' + localStorage.getItem('summonerName' + count);
-                  if (count != 9) {
-                    url += '&';
-                  } else {
-                    break;
-                  }
-                  count++;
-                }
-                location.href = url;
-              }
-            } else if (key.includes('pick')) {
-              if (data[key] != -1) {
-                if (key.includes('0') || key.includes('1') || key.includes('2') || key.includes('3') || key.includes('4')) {
-                  document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/b' + data[key] + ')';
-                } else {
-                  document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/r' + data[key] + ')';
-                }
-              } else {
-                document.getElementById(key).style.backgroundImage = 'none';
-              }
-            } else if (key.includes('ban')) {
-              if (data[key] != -1) {
-                document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/d' + data[key] + ')';
-              } else {
-                document.getElementById(key).style.backgroundImage = 'none';
-              }
-            } else if (key.includes('spell')) {
-              if (data['phase'] == 'FINALIZATION') {
-                document.getElementById(key).style.backgroundImage = 'url(http://localhost:8332/s' + data[key] + ')';
-              }
-            } else if (key.includes('select')) {
-              if (data[key] > 0) {
-                if (localStorage.getItem(key) != null&&localStorage.getItem(key) > 0) {
-                  if(localStorage.getItem(key) != data[key]){
-                    setSelect(localStorage.getItem(key), false);
-                    setSelect(data[key], true);
-                  }
-                } else {
-                  setSelect(data[key], true);
-                }
-              } else {
-                if (localStorage.getItem(key) != null) {
-                  if (localStorage.getItem(key) > 0) {
-                    localStorage.setItem('final',true);
-                    setSelect(localStorage.getItem(key), false);
-                  }
-                }
-              }
-
-              // if (localStorage.getItem(key) != null) {
-              //   if (localStorage.getItem(key) > 0) {
-              //     setSelect(localStorage.getItem(key), false);
-              //   }
-              // }
-              // if (data[key] > 0) {
-              //   setSelect(data[key], true);
-              // }
-            } else if (key == 'patch') {
-              document.getElementById(key).innerHTML = 'PATCH: ' + data[key];
-            } else if (key == 'timer') {
-              // document.getElementById(key).innerHTML = ':' + data[key];
-            } else if (key.includes('TeamName') || key.includes('summonerName')) {
-              document.getElementById(key).innerHTML = data[key];
-            }
-            localStorage.setItem(key, data[key]);
-          }
-        }
-      }
-      // })
-      // .catch(error => {
-      //   console.error('Error:', error);
-      // });
-  }
-
-  function setSelect(pick, add) {
-    if(add){
-        timer = 30;
-    }
-    var color = "Blue";
-    var ban = false;
-    if (
-      pick == "7" ||
-      pick == "8" ||
-      pick == "11" ||
-      pick == "16" ||
-      pick == "19"
-    ) {
-      color = "Red";
-    } else if (
-      pick == "0" ||
-      pick == "2" ||
-      pick == "4" ||
-      pick == "13" ||
-      pick == "15"
-    ) {
-      ban = true;
-    } else if (
-      pick == "14" ||
-      pick == "12" ||
-      pick == "5" ||
-      pick == "3" ||
-      pick == "1"
-    ) {
-      color = "Red";
-      ban = true;
-    }
-    if (add) {
-      if (ban) {
-        document.getElementById('banpickGra' + pick).classList.add('banpick' + color);
-      } else {
-        document.getElementById('pickGra' + pick).classList.add('pick' + color);
-      }
-    } else {
-      if (ban) {
-        document.getElementById('banpickGra' + pick).classList.remove('banpick' + color);
-      } else {
-        document.getElementById('pickGra' + pick).classList.remove('pick' + color);
-      }
-    }
-  }
-</script> -->
